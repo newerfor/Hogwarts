@@ -2,14 +2,11 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.example.hogwarts"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.hogwarts"
@@ -30,36 +27,47 @@ android {
             )
         }
     }
+
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
-    implementation("io.insert-koin:koin-core:4.0.1")
-    implementation("io.insert-koin:koin-android:4.0.1")
-    implementation("io.insert-koin:koin-androidx-compose:4.0.1")
+    implementation(project(":core:core-domain"))
+    implementation(project(":feature:feature-character-detail"))
+    implementation(project(":feature:feature-main"))
+    implementation(project(":core:core-data"))
+    implementation(libs.material.v1110)
+    implementation(libs.koin.core.v401)
+    implementation(libs.koin.android.v401)
+    implementation(libs.koin.androidx.compose.v401)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
     implementation(libs.gson)
     implementation(libs.kotlinx.coroutines.android)
-    implementation("androidx.room:room-runtime:2.8.4")
-    implementation("androidx.room:room-ktx:2.8.4")
-    kapt("androidx.room:room-compiler:2.8.4")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.coil.compose)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

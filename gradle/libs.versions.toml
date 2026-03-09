@@ -1,11 +1,16 @@
 [versions]
+activityComposeVersion = "1.10.0"
 agp = "8.13.2"
 coilCompose = "2.7.0"
 converterGson = "2.9.0"
+converterGsonVersion = "2.11.0"
 gson = "2.10.1"
+insertKoinKoinAndroid = "4.0.1"
+insertKoinKoinCore = "4.0.1"
 koinAndroid = "4.1.1"
 koinAndroidVersion = "3.5.3"
 koinAndroidxCompose = "4.1.1"
+koinAndroidxComposeVersion = "4.0.1"
 koinAndroidxNavigation = "4.1.1"
 koinAndroidxViewmodel = "3.5.0"
 koinAndroidxViewmodelVersion = "3.5.3"
@@ -13,27 +18,47 @@ koinAndroidxWorkmanager = "4.1.1"
 koinCompose = "4.1.1"
 koinCore = "4.1.1"
 koinCoreVersion = "3.5.3"
-kotlin = "2.0.21"
+kotlin = "2.1.10"
 coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesCore = "1.7.3"
+kotlinxDatetime = "0.6.0"
 lifecycleRuntimeKtx = "2.10.0"
 activityCompose = "1.12.3"
-composeBom = "2024.09.00"
+composeBom = "2026.02.01"
 lifecycleViewmodelKtx = "2.7.0"
 loggingInterceptor = "4.12.0"
+material3 = "1.3.2"
+materialVersion = "1.11.0"
+navigationCompose = "2.8.9"
 okhttp = "4.12.0"
+retrofit = "2.11.0"
 roomCompiler = "2.6.1"
+appcompat = "1.7.1"
+material = "1.13.0"
+roomCompilerVersion = "2.8.4"
+roomRuntime = "2.8.4"
+ui = "1.7.8"
 
 
 [libraries]
+androidx-activity-compose-v1100 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-compiler-v284 = { module = "androidx.room:room-compiler", version.ref = "roomCompilerVersion" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+converter-gson-v2110 = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGsonVersion" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -50,7 +75,9 @@ androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-te
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 koin-android-v353 = { module = "io.insert-koin:koin-android", version.ref = "koinAndroidVersion" }
+koin-android-v401 = { module = "io.insert-koin:koin-android", version.ref = "insertKoinKoinAndroid" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+koin-androidx-compose-v401 = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxComposeVersion" }
 koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinAndroidxNavigation" }
 koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodel" }
 koin-androidx-viewmodel-v353 = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodelVersion" }
@@ -58,12 +85,21 @@ koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCompose" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 koin-core-v353 = { module = "io.insert-koin:koin-core", version.ref = "koinCoreVersion" }
+koin-core-v401 = { module = "io.insert-koin:koin-core", version.ref = "insertKoinKoinCore" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+material-v1110 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+retrofit-v2110 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

@@ -14,22 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hogwarts">
+
+        <!-- Главный экран (из feature-main) -->
         <activity
-            android:name=".presentation.CharacterFullInfo.ui.CharacterFullInfo"
-            android:exported="false"
-            android:label="@string/title_activity_character_full_info"
-            android:theme="@style/Theme.Hogwarts" />
-        <activity
-            android:name=".presentation.main.ui.MainActivity"
+            android:name="com.example.feature_main.presentation.main.ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Hogwarts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <activity
+            android:name="com.example.feature_character_detail.ui.CharacterFullInfo"
+            android:exported="false"
+            android:label="@string/title_activity_character_full_info"
+            android:theme="@style/Theme.Hogwarts" />
 
+    </application>
 </manifest>
