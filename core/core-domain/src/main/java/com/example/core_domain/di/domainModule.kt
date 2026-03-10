@@ -4,7 +4,7 @@ import com.example.core_domain.useCase.GetCharacterByIdUseCase
 import com.example.core_domain.useCase.GetCharactersUseCase
 import org.koin.dsl.module
 
-val domainModule = module {  // ✅ просто val
+val domainModule = module {
     factory { GetCharactersUseCase(repository = get()) }
     factory { GetCharacterByIdUseCase(repository = get()) }
 }

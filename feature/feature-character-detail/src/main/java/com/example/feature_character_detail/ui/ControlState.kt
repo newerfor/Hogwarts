@@ -47,8 +47,11 @@ fun ControlState(
                     ), contentDescription = "",
                     Modifier.fillMaxSize(), contentScale = Crop
                 )
-                Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()){
-                    CharacterFullInfo(characterByIdState.character, textFont,onBackClick)
+                Column(Modifier
+                    .fillMaxSize()
+                    .statusBarsPadding()
+                    .navigationBarsPadding()) {
+                    CharacterFullInfo(characterByIdState.character, textFont, onBackClick)
                 }
             }
         }

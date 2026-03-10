@@ -1,11 +1,11 @@
 package com.example.core_data.data.mapper
 
+import com.example.core_data.data.local.entity.CharactersEntityModel
 import com.example.core_domain.model.CharacterDomainModel
 import com.example.core_domain.model.CharacterFullInfoDomainModel
-import com.example.core_data.data.local.entity.CharactersEntityModel
 
 class Mapper {
-    fun mapEntityToDomain(character: CharactersEntityModel) : CharacterDomainModel {
+    fun mapEntityToDomain(character: CharactersEntityModel): CharacterDomainModel {
         return CharacterDomainModel(
             id = character.id,
             image = character.image,
@@ -17,7 +17,8 @@ class Mapper {
             ancestry = character.ancestry
         )
     }
-    fun mapEntityToDomainFullInfo(character: CharactersEntityModel) : CharacterFullInfoDomainModel {
+
+    fun mapEntityToDomainFullInfo(character: CharactersEntityModel): CharacterFullInfoDomainModel {
         return CharacterFullInfoDomainModel(
             name = character.name,
             alternate_names = character.alternateNames,

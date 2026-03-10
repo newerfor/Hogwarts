@@ -1,6 +1,5 @@
 package com.example.feature_main.presentation.main.ui
 
-import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

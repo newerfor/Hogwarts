@@ -1,7 +1,6 @@
 package com.example.core_data.data.di
 
 import com.example.core_data.data.impl.RepositoryImpl
-import org.koin.dsl.module
 import com.example.core_data.data.local.dao.HogwartsCharactersDao
 import com.example.core_data.data.local.database.DataBaseProvider
 import com.example.core_data.data.local.database.HogwartsDatabase
@@ -15,8 +14,9 @@ import com.example.core_data.data.remote.remoteRepository.RemoteDataSource
 import com.example.core_data.data.remote.remoteRepository.RemoteRepositoryImpl
 import com.example.core_domain.repository.CharactersRepository
 import org.koin.android.ext.koin.androidContext
+import org.koin.dsl.module
 
-val dataModule = module {  // ✅ просто val на верхнем уровне
+val dataModule = module {
     single<CharactersRepository> {
         RepositoryImpl(
             localDataSource = get(),

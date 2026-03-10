@@ -9,16 +9,22 @@ import com.example.feature_character_detail.ui.CharacterDetailScreen
 import com.example.feature_main.presentation.main.ui.MainScreen
 
 @Composable
-fun AppNavHost(){
+fun AppNavHost() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = NavRoutes.Main.route) {
-        composable(NavRoutes.Main.route){
+        composable(NavRoutes.Main.route) {
             MainScreen(
-                onClick = { characterId -> navController.navigate(NavRoutes.Detail.passId(characterId)) }
+                onClick = { characterId ->
+                    navController.navigate(
+                        NavRoutes.Detail.passId(
+                            characterId
+                        )
+                    )
+                }
             )
         }
-        composable(NavRoutes.Detail.route){
-            val characterId = it.arguments?.getString("characterId")?:""
+        composable(NavRoutes.Detail.route) {
+            val characterId = it.arguments?.getString("characterId") ?: ""
             CharacterDetailScreen(
                 characterId,
                 onBackClick = { navController.popBackStack() }

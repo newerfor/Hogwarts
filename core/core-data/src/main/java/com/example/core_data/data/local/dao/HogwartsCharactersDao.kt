@@ -6,13 +6,17 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.core_data.data.constant.DataBaseConstant.LIMIT_DATA_BASE
 import com.example.core_data.data.local.entity.CharactersEntityModel
+
 @Dao
 interface HogwartsCharactersDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend  fun saveCharacter(character: CharactersEntityModel)
+    suspend fun saveCharacter(character: CharactersEntityModel)
+
     @Query("SELECT * FROM character WHERE id = :id")
     suspend fun getCharacterById(id: String): CharactersEntityModel
-    @Query("""
+
+    @Query(
+        """
         SELECT * FROM character 
         WHERE (:house IS NULL OR house = :house)
         AND (:isStaff IS NULL OR hogwartsStaff = :isStaff)
@@ -22,7 +26,8 @@ interface HogwartsCharactersDao {
         AND (:nameQuery IS NULL OR name LIKE '%' || :nameQuery || '%')
         ORDER BY name ASC
         LIMIT :limit OFFSET :offset
-    """)
+    """
+    )
     suspend fun getCharacters(
         house: String?,
         isStaff: Boolean?,

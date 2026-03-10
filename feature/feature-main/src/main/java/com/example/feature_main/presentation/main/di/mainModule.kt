@@ -4,6 +4,6 @@ import com.example.feature_main.presentation.main.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val mainModule = module {  // ✅ просто val
+val mainModule = module {
     viewModel { MainViewModel(getCharactersUseCase = get()) }
 }

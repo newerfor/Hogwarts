@@ -7,9 +7,9 @@ import com.example.core_ui.theme.colorDead
 
 @Composable
 fun aliveStatus(alive: Boolean): Color {
-    return if(alive){
+    return if (alive) {
         colorAlive
-    }else{
+    } else {
         colorDead
     }
 }

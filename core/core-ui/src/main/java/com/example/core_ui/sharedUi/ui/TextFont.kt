@@ -31,6 +31,7 @@ class TextFont {
             modifier = modifier
         )
     }
+
     @Composable
     fun WhiteRegularText(
         text: String,
@@ -47,6 +48,7 @@ class TextFont {
             modifier = modifier
         )
     }
+
     @Composable
     fun BodyText(
         text: String,
@@ -63,6 +65,7 @@ class TextFont {
             modifier = modifier
         )
     }
+
     @Composable
     fun WhiteBodyText(
         text: String,

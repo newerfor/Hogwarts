@@ -1,6 +1,5 @@
 package com.example.feature_main.presentation.main.ui
 
-import android.R.attr.onClick
 import android.content.Context
 import androidx.compose.foundation.ScrollState
 import androidx.compose.runtime.Composable
@@ -38,7 +37,7 @@ fun MainControlState(
                 context,
                 viewModel,
                 scrollState,
-                onClick=onClick
+                onClick = onClick
             )
         }
     }

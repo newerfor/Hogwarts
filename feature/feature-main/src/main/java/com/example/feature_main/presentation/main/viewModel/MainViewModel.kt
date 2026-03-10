@@ -37,7 +37,7 @@ class MainViewModel(
         Log.d("laekghnkjehghejkbgehjkg", "saveCharacter: dfhdfg")
         viewModelScope.launch {
             try {
-                if(isFirstLaunch.value){
+                if (isFirstLaunch.value) {
                     _charactersUiState.value = CharactersUiState.Loading
                 }
                 val result = getCharactersUseCase(
@@ -78,10 +78,10 @@ class MainViewModel(
         Log.d("laekghnkjehghejkbgehjkg", "Filters: dfhdfg")
         filer_house = house
         filer_isStaff = isStaff
-        filer_isStudent=isStudent
-        filer_isWizard=isWizard
-        filer_ancestry=ancestry
-        filer_nameQuery=nameQuery
+        filer_isStudent = isStudent
+        filer_isWizard = isWizard
+        filer_ancestry = ancestry
+        filer_nameQuery = nameQuery
         offset.value = 0
         _characters.value = emptyList()
         getCharacters()

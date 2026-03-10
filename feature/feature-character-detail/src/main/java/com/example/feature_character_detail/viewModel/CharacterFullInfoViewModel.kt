@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlin.onSuccess
 
 class CharacterFullInfoViewModel(
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase
 ) : ViewModel() {
-    private val _characterByIdState = MutableStateFlow<CharacterByIdUiState>(CharacterByIdUiState.Loading)
+    private val _characterByIdState =
+        MutableStateFlow<CharacterByIdUiState>(CharacterByIdUiState.Loading)
     val characterByIdState: StateFlow<CharacterByIdUiState> = _characterByIdState.asStateFlow()
-    fun getCharacterById(id: String){
+    fun getCharacterById(id: String) {
         viewModelScope.launch {
             _characterByIdState.value = CharacterByIdUiState.Loading
             try {
@@ -24,7 +24,7 @@ class CharacterFullInfoViewModel(
                 }.onFailure { error ->
                     _characterByIdState.value = CharacterByIdUiState.Error(error.toString())
                 }
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 _characterByIdState.value = CharacterByIdUiState.Error(e.toString())
             }
         }

@@ -1,6 +1,5 @@
 package com.example.feature_main.presentation.main.ui
 
-import android.R.attr.onClick
 import android.content.Context
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
@@ -44,9 +43,7 @@ fun CharactersScreen(
             .onGloballyPositioned { layoutCoordinates ->
                 val maxScroll = scrollState.maxValue
                 val currentScroll = scrollState.value
-
-                // Проверяем, достигли ли конца прокрутки
-                if (currentScroll >= maxScroll - 100) { // 100px от конца
+                if (currentScroll >= maxScroll - 100) {
                     viewModel.getCharacters()
                 }
             }) {

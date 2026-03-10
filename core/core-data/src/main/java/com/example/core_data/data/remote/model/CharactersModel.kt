@@ -2,7 +2,7 @@ package com.example.core_data.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class CharactersModel (
+data class CharactersModel(
     @SerializedName("id")
     val id: String,
 

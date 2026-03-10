@@ -5,8 +5,8 @@ import com.example.core_data.data.remote.model.CharactersModel
 
 class RemoteRepositoryImpl(
     private val apiService: ApiService
-): RemoteDataSource {
+) : RemoteDataSource {
     override suspend fun getCharactersRemote(): List<CharactersModel> {
-        return  apiService.getCharacters()
+        return apiService.getCharacters()
     }
 }

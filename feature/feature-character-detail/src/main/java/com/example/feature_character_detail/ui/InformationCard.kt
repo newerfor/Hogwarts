@@ -1,6 +1,5 @@
 package com.example.feature_character_detail.ui
 
-import android.R.attr.label
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,7 +39,7 @@ fun InformationCard(
             for (labelToInfoMap in mapLabelToInfo) {
                 textFont.WhiteRegularText(labelToInfoMap.key)
                 for (labelToInfo in labelToInfoMap.value) {
-                    LabelToInfo(labelToInfo.key, labelToInfo.value,textFont)
+                    LabelToInfo(labelToInfo.key, labelToInfo.value, textFont)
                 }
             }
         }

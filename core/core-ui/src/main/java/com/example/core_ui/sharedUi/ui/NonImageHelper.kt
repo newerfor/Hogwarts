@@ -9,7 +9,7 @@ import com.example.core_ui.R
 
 class NonImageHelper {
     @Composable
-    fun selectedNonImage(house:String): Painter {
+    fun selectedNonImage(house: String): Painter {
         return when (house) {
             stringResource(R.string.gryffindor_picker) -> painterResource(R.drawable.griffindor_character)
             stringResource(R.string.slytherin_picker) -> painterResource(R.drawable.slizerin_character)

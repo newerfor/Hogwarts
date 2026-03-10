@@ -4,12 +4,9 @@ import com.example.core_data.data.local.entity.CharactersEntityModel
 import com.example.core_data.data.remote.model.CharactersModel
 
 class LocalMapper {
-    fun mapRemoteToLocal(character:CharactersModel): CharactersEntityModel{
-        val allActors = buildList<String> {
-            // Добавляем основного актера, если он не null и не пустой
+    fun mapRemoteToLocal(character: CharactersModel): CharactersEntityModel {
+        val allActors = buildList {
             character.actor?.takeIf { it.isNotBlank() }?.let { add(it) }
-
-            // Добавляем альтернативных актеров, если они есть
             character.alternateActors?.forEach { actor ->
                 actor.takeIf { it.isNotBlank() }?.let { add(it) }
             }
@@ -22,7 +19,7 @@ class LocalMapper {
             gender = character.gender,
             house = character.house,
             dateOfBirth = character.dateOfBirth,
-            wizard =character.wizard,
+            wizard = character.wizard,
             ancestry = character.ancestry,
             eyeColour = character.eyeColour,
             hairColour = character.hairColour,

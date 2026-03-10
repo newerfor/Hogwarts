@@ -19,7 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.core_ui.R  // Импорт R из core-ui
+import com.example.core_ui.R
 import com.example.core_ui.sharedUi.constant.SharedUiViewConstant.ERROR_MESSAGE_COLUMN_PADDING
 import com.example.core_ui.sharedUi.constant.SharedUiViewConstant.ERROR_MESSAGE_ROW_CLIP
 import com.example.core_ui.sharedUi.constant.SharedUiViewConstant.ERROR_MESSAGE_ROW_PADDING

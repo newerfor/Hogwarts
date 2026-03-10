@@ -41,6 +41,7 @@ val fontFamily = FontFamily(
     Font(R.font.hogwarts, FontWeight.SemiBold),
     Font(R.font.hogwarts, FontWeight.Bold)
 )
+
 @Composable
 fun HogwartsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

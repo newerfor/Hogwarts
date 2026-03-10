@@ -8,10 +8,12 @@ import java.util.Collections.emptyList
 
 class Converters {
     private val gson = Gson()
+
     @TypeConverter
     fun fromStringList(value: List<String>?): String? {
         return value?.let { gson.toJson(it) }
     }
+
     @TypeConverter
     fun toStringList(value: String?): List<String>? {
         return if (value.isNullOrBlank()) {
@@ -21,6 +23,7 @@ class Converters {
             gson.fromJson(value, listType)
         }
     }
+
     @TypeConverter
     fun fromDouble(value: Double?): String? {
         return value?.toString()

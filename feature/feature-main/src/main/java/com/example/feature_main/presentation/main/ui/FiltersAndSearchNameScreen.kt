@@ -172,9 +172,11 @@ fun FiltersScreen(
     var expandedWizard = remember { mutableStateOf(false) }
     var expandedAncestries = remember { mutableStateOf(false) }
     Dialog(onDismissRequest = { openWindowFilters.value = false }) {
-        Column(Modifier
-            .fillMaxWidth()
-            .background(backgroundInformationCard)) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .background(backgroundInformationCard)
+        ) {
             textFont.WhiteRegularText(
                 "Выберите факультет",
                 Modifier.padding(top = 20.dp, start = 12.dp)

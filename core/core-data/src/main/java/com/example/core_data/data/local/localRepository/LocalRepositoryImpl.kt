@@ -1,11 +1,10 @@
 package com.example.core_data.data.local.localRepository
 
 import android.content.Context
-import android.util.Log
-import com.example.core_data.data.local.localRepository.SaveImageHelper.saveImageFromUrl
 import com.example.core_data.data.local.dao.HogwartsCharactersDao
 import com.example.core_data.data.local.entity.CharactersEntityModel
 import com.example.core_data.data.local.localMapper.LocalMapper
+import com.example.core_data.data.local.localRepository.SaveImageHelper.saveImageFromUrl
 import com.example.core_data.data.remote.model.CharactersModel
 
 class LocalRepositoryImpl(
@@ -38,10 +37,9 @@ class LocalRepositoryImpl(
     }
 
     override suspend fun saveCharacter(character: CharactersModel) {
-        Log.d("jengkejgnegj1", "saveCharacter: $character")
-        if(character.image == null){
+        if (character.image == null) {
             dao.saveCharacter(mapper.mapRemoteToLocal(character))
-        }else{
+        } else {
             val savedPath = saveImageFromUrl(
                 context = context,
                 imageUrl = character.image,
@@ -49,12 +47,7 @@ class LocalRepositoryImpl(
             val characterWithLocalImage = character.copy(
                 image = savedPath
             )
-            Log.d("jengkejgnegj2", "saveCharacter: $characterWithLocalImage")
             dao.saveCharacter(mapper.mapRemoteToLocal(characterWithLocalImage))
         }
-
-
     }
-
-
 }

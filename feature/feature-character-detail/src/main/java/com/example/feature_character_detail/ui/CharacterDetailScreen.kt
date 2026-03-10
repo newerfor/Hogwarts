@@ -10,21 +10,22 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CharacterDetailScreen(
-    id:String,
+    id: String,
     onBackClick: () -> Unit
-){
-    CharacterFullInfoView(id=id,onBackClick=onBackClick)
+) {
+    CharacterFullInfoView(id = id, onBackClick = onBackClick)
 }
+
 @Composable
 fun CharacterFullInfoView(
     characterViewModel: CharacterFullInfoViewModel = koinViewModel(),
     textFont: TextFont = TextFont(),
-    id:String,
+    id: String,
     onBackClick: () -> Unit
 ) {
     LaunchedEffect(Unit) {
         characterViewModel.getCharacterById(id)
     }
     val characterByIdState by characterViewModel.characterByIdState.collectAsState()
-    ControlState(characterByIdState,textFont,characterViewModel,id,onBackClick)
+    ControlState(characterByIdState, textFont, characterViewModel, id, onBackClick)
 }
