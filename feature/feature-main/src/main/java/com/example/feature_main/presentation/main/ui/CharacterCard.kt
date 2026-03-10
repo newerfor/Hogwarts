@@ -44,150 +44,154 @@ import com.example.feature_main.presentation.main.constant.MainViewConstant.STAT
 import com.example.feature_main.presentation.main.constant.MainViewConstant.STATUS_PADDING
 import com.example.feature_main.presentation.main.constant.MainViewConstant.STATUS_RADIUS
 
-class CharacterCard {
-    @Composable
-    fun Character(character: CharacterDomainModel, textFont: TextFont, context: Context) {
-        Column(
-            Modifier
-                .clip(RoundedCornerShape(CHARACTER_MAIN_CONTAINER_CLIP.dp))
-                .background(colorWhite)
-                .fillMaxWidth()
-                .size(CHARACTER_MAIN_CONTAINER_SIZE.dp)
-                .clickable() {
-                    //тут нужно будет перейти на экран с детальной информацией о персонаже
-                }
-        ) {
-            CharacterImageSpace(character, textFont)
-            CharacterTextSpace(character, textFont)
-        }
-    }
 
-    @Composable
-    fun CharacterImageSpace(character: CharacterDomainModel, textFont: TextFont) {
-        Box(
+@Composable
+fun Character(character: CharacterDomainModel, textFont: TextFont, onClick: (String) -> Unit) {
+    Column(
+        Modifier
+            .clip(RoundedCornerShape(CHARACTER_MAIN_CONTAINER_CLIP.dp))
+            .background(colorWhite)
+            .fillMaxWidth()
+            .size(CHARACTER_MAIN_CONTAINER_SIZE.dp)
+            .clickable() {
+                onClick.invoke(character.id)
+            }
+    ) {
+        CharacterImageSpace(character, textFont)
+        CharacterTextSpace(character, textFont)
+    }
+}
+
+@Composable
+fun CharacterImageSpace(character: CharacterDomainModel, textFont: TextFont) {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(CHARACTER_IMAGE_HEIGHT)
+    ) {
+        if (character.image == null || character.image!!.isEmpty()) {
+            Image(
+                NonImageHelper().selectedNonImage(character.house ?: ""),
+                null,
+                modifier = Modifier.fillMaxWidth(),
+                contentScale = Crop
+            )
+        } else {
+            AsyncImage(
+                model = character.image,
+                null,
+                modifier = Modifier.fillMaxWidth(), contentScale = Crop
+            )
+        }
+
+        Row(
             Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(CHARACTER_IMAGE_HEIGHT)
+                .padding(CHARACTER_ICON_CONTAINER_PADDING.dp)
         ) {
-            if (character.image == null || character.image!!.isEmpty()) {
-                Image(NonImageHelper().selectedNonImage(character.house?:""), null,modifier = Modifier.fillMaxWidth(), contentScale = Crop)
-            }else{
-                AsyncImage(
-                    model = character.image,
-                    null,
-                    modifier = Modifier.fillMaxWidth(), contentScale = Crop
+            Box(
+                Modifier
+                    .size(CHARACTER_ICON_SIZE.dp)
+                    .clip(RoundedCornerShape(CHARACTER_ICON_CLIP.dp))
+                    .background(Color.Gray)
+            ) {
+                Image(
+                    housePicker(
+                        character.house ?: stringResource(R.string.data_not_found)
+                    ),
+                    "",
+                    Modifier.fillMaxSize(),
+                    contentScale = Crop
                 )
             }
-
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(CHARACTER_ICON_CONTAINER_PADDING.dp)
-            ) {
+            Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.End) {
                 Box(
                     Modifier
                         .size(CHARACTER_ICON_SIZE.dp)
                         .clip(RoundedCornerShape(CHARACTER_ICON_CLIP.dp))
-                        .background(Color.Gray)
+                        .background(Color.Gray), contentAlignment = Alignment.Center
                 ) {
-                    Image(
-                        CategoriesCharacter().housePicker(
-                            character.house ?: stringResource(R.string.data_not_found)
-                        ),
-                        "",
-                        Modifier.fillMaxSize(),
-                        contentScale = Crop
-                    )
-                }
-                Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.End) {
-                    Box(
-                        Modifier
-                            .size(CHARACTER_ICON_SIZE.dp)
-                            .clip(RoundedCornerShape(CHARACTER_ICON_CLIP.dp))
-                            .background(Color.Gray), contentAlignment = Alignment.Center
-                    ) {
-                        if (character.wizard) {
-                            Image(
-                                painterResource(R.drawable.wizard),
-                                "",
-                                Modifier.fillMaxSize(),
-                                contentScale = Crop
-                            )
-                        } else {
-                            Image(
-                                painterResource(R.drawable.no_wizard),
-                                "",
-                                Modifier.fillMaxSize(),
-                                contentScale = Crop
-                            )
-                        }
+                    if (character.wizard) {
+                        Image(
+                            painterResource(R.drawable.wizard),
+                            "",
+                            Modifier.fillMaxSize(),
+                            contentScale = Crop
+                        )
+                    } else {
+                        Image(
+                            painterResource(R.drawable.no_wizard),
+                            "",
+                            Modifier.fillMaxSize(),
+                            contentScale = Crop
+                        )
                     }
                 }
             }
-            Box(
-                modifier = Modifier.align(Alignment.BottomEnd)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .background(
-                            color = backgroundStatusColor,
-                            shape = RoundedCornerShape(
-                                topStart = STATUS_RADIUS.dp
-                            )
+        }
+        Box(
+            modifier = Modifier.align(Alignment.BottomEnd)
+        ) {
+            Row(
+                modifier = Modifier
+                    .background(
+                        color = backgroundStatusColor,
+                        shape = RoundedCornerShape(
+                            topStart = STATUS_RADIUS.dp
                         )
-                        .padding(STATUS_PADDING.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        Modifier
-                            .padding(STATUS_PADDING.dp)
-                            .size(STATUS_DOT_SIZE.dp)
-                            .clip(RoundedCornerShape(STATUS_RADIUS.dp))
-                            .background(CategoriesCharacter().aliveStatus(character.alive))
                     )
-                    textFont.WhiteBodyText(
-                        text = if (character.alive) {
-                            stringResource(R.string.alive)
-                        } else {
-                            stringResource(R.string.dead)
-                        },
-                        textAlign = TextAlign.Center,
-                    )
-                }
+                    .padding(STATUS_PADDING.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    Modifier
+                        .padding(STATUS_PADDING.dp)
+                        .size(STATUS_DOT_SIZE.dp)
+                        .clip(RoundedCornerShape(STATUS_RADIUS.dp))
+                        .background(aliveStatus(character.alive))
+                )
+                textFont.WhiteBodyText(
+                    text = if (character.alive) {
+                        stringResource(R.string.alive)
+                    } else {
+                        stringResource(R.string.dead)
+                    },
+                    textAlign = TextAlign.Center,
+                )
             }
         }
     }
+}
 
-    @Composable
-    fun CharacterTextSpace(character: CharacterDomainModel, textFont: TextFont) {
-        Column(
-            Modifier
-                .fillMaxWidth()
-                .padding(CHARACTER_REGULAR_TEXT_PADDING.dp),
-            Arrangement.Center,
-            Alignment.CenterHorizontally
-        ) {
-            textFont.RegularText(character.name)
-        }
-        textFont.BodyText(
-            "${stringResource(R.string.age_label)}: ${
-                DateHelper().getAgeFromDate(
-                    character.dateOfBirth ?: stringResource(
-                        R.string.data_not_found
-                    )
-                )
-            }",
-            Modifier.padding(start = CHARACTER_BODY_TEXT_PADDING_START.dp)
-        )
-        textFont.BodyText(
-            "${stringResource(R.string.ancestry_label)}: ${
-                if (character.ancestry.isNullOrEmpty()) {
-                    stringResource(R.string.data_not_found)
-                } else {
-                    character.ancestry
-                }
-            }",
-            Modifier.padding(start = CHARACTER_BODY_TEXT_PADDING_START.dp)
-        )
+@Composable
+fun CharacterTextSpace(character: CharacterDomainModel, textFont: TextFont) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .padding(CHARACTER_REGULAR_TEXT_PADDING.dp),
+        Arrangement.Center,
+        Alignment.CenterHorizontally
+    ) {
+        textFont.RegularText(character.name)
     }
+    textFont.BodyText(
+        "${stringResource(R.string.age_label)}: ${
+            DateHelper().getAgeFromDate(
+                character.dateOfBirth ?: stringResource(
+                    R.string.data_not_found
+                )
+            )
+        }",
+        Modifier.padding(start = CHARACTER_BODY_TEXT_PADDING_START.dp)
+    )
+    textFont.BodyText(
+        "${stringResource(R.string.ancestry_label)}: ${
+            if (character.ancestry.isNullOrEmpty()) {
+                stringResource(R.string.data_not_found)
+            } else {
+                character.ancestry
+            }
+        }",
+        Modifier.padding(start = CHARACTER_BODY_TEXT_PADDING_START.dp)
+    )
 }

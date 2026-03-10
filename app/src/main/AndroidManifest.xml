@@ -17,7 +17,7 @@
 
         <!-- Главный экран (из feature-main) -->
         <activity
-            android:name="com.example.feature_main.presentation.main.ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Hogwarts">
@@ -26,11 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.feature_character_detail.ui.CharacterFullInfo"
-            android:exported="false"
-            android:label="@string/title_activity_character_full_info"
-            android:theme="@style/Theme.Hogwarts" />
 
     </application>
 </manifest>
