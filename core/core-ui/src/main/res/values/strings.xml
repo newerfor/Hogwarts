@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">core-ui</string>
+    <string name="gryffindor_picker">Gryffindor</string>
+    <string name="slytherin_picker">Slytherin</string>
+    <string name="hufflepuff_picker">Hufflepuff</string>
+    <string name="ravenclaw_picker">Ravenclaw</string>
+    <string name="retry">Retry</string>
+    <string name="error_text">An error has occurred</string>
+</resources>

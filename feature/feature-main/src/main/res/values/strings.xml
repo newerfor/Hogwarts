@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">feature-main</string>
+    <string name="gryffindor_picker">Gryffindor</string>
+    <string name="slytherin_picker">Slytherin</string>
+    <string name="hufflepuff_picker">Hufflepuff</string>
+    <string name="ravenclaw_picker">Ravenclaw</string>
+    <string name="filters">Фильтры</string>
+    <string name="search_by_name">Поиск по имени</string>
+    <string name="wizard_true">Волшебник</string>
+    <string name="wizard_false">Не волшебник</string>
+    <string name="alive">Жив</string>
+    <string name="dead">Мертв</string>
+    <string name="data_not_found">No data found</string>
+    <string name="age_label">Age</string>
+    <string name="ancestry_label">Ancestry</string>
+    <string name="stuff_label">Teacher</string>
+    <string name="student_label">Student</string>
+    <string name="ancestry_half_blood">half-blood</string>
+    <string name="ancestry_muggleborn">muggle</string>
+    <string name="ancestry_pure_blood">pure-blood</string>
+    <string name="ancestry_squib">squib</string>
+    <string name="ancestry_muggle">muggleborn</string>
+    <string name="ancestry_half_veela">quarter-veela</string>
+    <string name="ancestry_quarter_veela">half-veela</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_apply">Apply</string>
+    <string name="button_cancel">Cancel</string>
+</resources>
