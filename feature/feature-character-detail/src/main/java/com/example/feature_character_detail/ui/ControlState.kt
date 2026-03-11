@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale.Companion.Crop
 import androidx.compose.ui.res.stringResource
-import com.example.core_ui.sharedUi.ui.StateHelper.ErrorMassage
-import com.example.core_ui.sharedUi.ui.StateHelper.RoundLoad
+import com.example.core_ui.sharedUi.ui.ErrorMassage
+import com.example.core_ui.sharedUi.ui.RoundLoad
 import com.example.core_ui.sharedUi.ui.TextFont
 import com.example.feature_character_detail.R
 import com.example.feature_character_detail.viewModel.CharacterByIdUiState

@@ -26,47 +26,46 @@ import com.example.core_ui.sharedUi.constant.SharedUiViewConstant.ERROR_MESSAGE_
 import com.example.core_ui.sharedUi.constant.SharedUiViewConstant.ROUND_LOAD_ROUND_SIZE
 import com.example.core_ui.theme.backgroundInformationCard
 
-object StateHelper {
-    @Composable
-    fun RoundLoad() {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            CircularProgressIndicator(
-                modifier = Modifier.size(ROUND_LOAD_ROUND_SIZE.dp),
-                color = Color.Black
-            )
-        }
-    }
 
-    @Composable
-    fun ErrorMassage(
-        textFont: TextFont,
-        onRetry: () -> Unit
+@Composable
+fun RoundLoad() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Column(
+        CircularProgressIndicator(
+            modifier = Modifier.size(ROUND_LOAD_ROUND_SIZE.dp),
+            color = Color.Black
+        )
+    }
+}
+
+@Composable
+fun ErrorMassage(
+    textFont: TextFont,
+    onRetry: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(ERROR_MESSAGE_COLUMN_PADDING.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom
+    ) {
+        Row(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(ERROR_MESSAGE_COLUMN_PADDING.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Bottom
+                .fillMaxWidth()
+                .clip(shape = RoundedCornerShape(ERROR_MESSAGE_ROW_CLIP.dp))
+                .background(backgroundInformationCard)
+                .padding(ERROR_MESSAGE_ROW_PADDING.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(shape = RoundedCornerShape(ERROR_MESSAGE_ROW_CLIP.dp))
-                    .background(backgroundInformationCard)
-                    .padding(ERROR_MESSAGE_ROW_PADDING.dp)
-            ) {
-                textFont.WhiteBodyText(stringResource(R.string.error_text))
-                Spacer(modifier = Modifier.weight(1f))
-                textFont.WhiteBodyText(
-                    text = stringResource(R.string.retry),
-                    modifier = Modifier.clickable { onRetry() }
-                )
-            }
+            textFont.WhiteBodyText(stringResource(R.string.error_text))
+            Spacer(modifier = Modifier.weight(1f))
+            textFont.WhiteBodyText(
+                text = stringResource(R.string.retry),
+                modifier = Modifier.clickable { onRetry() }
+            )
         }
     }
 }

@@ -25,11 +25,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.core_domain.model.CharacterDomainModel
-import com.example.core_ui.sharedUi.ui.NonImageHelper
 import com.example.core_ui.sharedUi.ui.TextFont
+import com.example.core_ui.sharedUi.ui.selectedNonImage
 import com.example.core_ui.theme.backgroundStatusColor
 import com.example.core_ui.theme.colorWhite
-import com.example.core_util.DateHelper
+import com.example.core_util.getAgeFromDate
 import com.example.feature_main.R
 import com.example.feature_main.presentation.main.constant.MainViewConstant.CHARACTER_BODY_TEXT_PADDING_START
 import com.example.feature_main.presentation.main.constant.MainViewConstant.CHARACTER_ICON_CLIP
@@ -70,7 +70,7 @@ fun CharacterImageSpace(character: CharacterDomainModel, textFont: TextFont) {
     ) {
         if (character.image == null || character.image!!.isEmpty()) {
             Image(
-                NonImageHelper().selectedNonImage(character.house ?: ""),
+                selectedNonImage(character.house ?: ""),
                 null,
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = Crop
@@ -175,7 +175,7 @@ fun CharacterTextSpace(character: CharacterDomainModel, textFont: TextFont) {
     }
     textFont.BodyText(
         "${stringResource(R.string.age_label)}: ${
-            DateHelper().getAgeFromDate(
+            getAgeFromDate(
                 character.dateOfBirth ?: stringResource(
                     R.string.data_not_found
                 )
