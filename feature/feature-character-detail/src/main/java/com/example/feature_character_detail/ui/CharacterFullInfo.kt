@@ -21,8 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.core_domain.model.CharacterFullInfoDomainModel
-import com.example.core_ui.sharedUi.ui.NonImageHelper
 import com.example.core_ui.sharedUi.ui.TextFont
+import com.example.core_ui.sharedUi.ui.selectedNonImage
 import com.example.core_ui.theme.backgroundInformationCard
 import com.example.feature_character_detail.R
 import com.example.feature_character_detail.constant.CharacterFullInfoViewConstant.CHARACTER_INFO_SCREEN_IMAGE_SIZE
@@ -51,7 +51,7 @@ fun CharacterFullInfo(
         ) {
             if (character.image == null || character.image!!.isEmpty()) {
                 Image(
-                    NonImageHelper().selectedNonImage(character.house ?: ""),
+                    selectedNonImage(character.house ?: ""),
                     null,
                     modifier = Modifier.fillMaxWidth(),
                     contentScale = Crop
